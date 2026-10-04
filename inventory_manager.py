@@ -15,6 +15,13 @@ def display_all(inventory):
         )
     print("-" * 48)
 
+def search_product(inventory, product_id):
+    """Search for a product by its ID."""
+    for product in inventory:
+        if product['id'] == product_id:
+            return product
+    return None
+
 if __name__ == "__main__":
     print(display_all([]))  # Test with an empty inventory
-    
+    print(search_product([], 1))  # Test search with an empty inventory
