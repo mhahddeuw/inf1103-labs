@@ -131,6 +131,39 @@ def show_menu():
     print("6. Exit")
     print("-----------------------------------------------")
 
+# ------------- Main program -----------------
+def main():
+    print ("=" * 40)
+    print("INVENTORY MANAGEMENT SYSTEM")
+    print ("=" * 40)
+
+    # TEST DATA
+    inventory = [
+        {"id": "P001", "name": "Laptop", "price": 1200.00, "stock": 15},
+        {"id": "P002", "name": "Mouse", "price": 25.50, "stock": 40},
+        {"id": "P003", "name": "Keyboard", "price": 45.00, "stock": 25},
+    ]
+
+    while True:
+        show_menu()
+        choice = input("Enter option (1-6): ").strip()
+
+        if choice == "1":
+            display_all(inventory)
+        elif choice == "2":
+            handle_add_product(inventory)
+        elif choice == "3":
+            handle_update_stock(inventory)
+        elif choice == "4":
+            handle_search_product(inventory)
+        elif choice == "5":
+            print("Inventory saved successfully.")
+        elif choice == "6":
+            print("Thank you for using Inventory Management System.")
+            print("Program terminated")
+            break
+        else:
+            print("Invalid option. Please enter a number between 1 to 6.")
+
 if __name__ == "__main__":
-    print (handle_add_product)
-    print (handle_update_stock)
+    main()
