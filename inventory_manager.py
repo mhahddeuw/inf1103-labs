@@ -34,6 +34,13 @@ def add_product(inventory, product_id, name, price, stock):
     )
     return True  # Product added successfully
 
+def update_stock(inventory, product_id, new_stock):
+    """Update the stock of a product. Return False if product does not exist"""
+    product = search_product(inventory, product_id)
+    if product is None:
+        return False  # Product does not exist
+    product['stock'] = new_stock
+    return True  # Stock updated successfully
 
 
 if __name__ == "__main__":
