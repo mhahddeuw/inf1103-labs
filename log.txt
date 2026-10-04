@@ -1,0 +1,95 @@
+commit db4a59d3ad8d72c1f4f30b448ecfe7c85ed4e1bd
+Author: matthieu <2605746@sit.singaporetech.edu.sg>
+Date:   Sun Oct 4 23:16:39 2026 +0800
+
+    Add save_inventory() and save on exit
+
+commit a9e6ab9333d0368105cf2f513236c863c97e2811
+Author: matthieu <2605746@sit.singaporetech.edu.sg>
+Date:   Sun Oct 4 23:14:57 2026 +0800
+
+    Create save_inventory func
+
+commit 27997fbbb7fb8b6ea5c0c70abfcb8154cd51de55
+Author: matthieu <2605746@sit.singaporetech.edu.sg>
+Date:   Sun Oct 4 23:10:26 2026 +0800
+
+    Add load_inventory()
+
+commit 48787bee60d4ac8a6bd08cdd8ef2fd455e38d2c0
+Author: matthieu <2605746@sit.singaporetech.edu.sg>
+Date:   Sun Oct 4 23:05:26 2026 +0800
+
+    Add inventory.json
+
+commit 683e4ab61f2c50d95b5c998acb3d1ccbdd50b7f0
+Author: matthieu <2605746@sit.singaporetech.edu.sg>
+Date:   Sun Oct 4 22:18:44 2026 +0800
+
+    Remove hardcoded test products
+
+commit 3c5c6f9240961b28a5c6c9d142836bd78ee156ef
+Author: matthieu <2605746@sit.singaporetech.edu.sg>
+Date:   Sun Oct 4 22:17:43 2026 +0800
+
+    Create and load from json
+
+commit a43eea3387b3fa950c46e86514ed84ea935c66f5
+Author: matthieu <2605746@sit.singaporetech.edu.sg>
+Date:   Sun Oct 4 22:08:54 2026 +0800
+
+    Create dictionary, hardcode test products
+
+commit 7b2486ed86d30c0e82e2d378e9efec314df1bc05
+Author: matthieu <2605746@sit.singaporetech.edu.sg>
+Date:   Sun Oct 4 21:53:15 2026 +0800
+
+    Create menu action functions
+
+commit e9b71316e60db280c403648c763a8b821e2798b2
+Author: matthieu <2605746@sit.singaporetech.edu.sg>
+Date:   Sun Oct 4 20:03:30 2026 +0800
+
+    Def User input validity
+
+commit 5205b1252fda205342be0193dd41d694cd9eb735
+Author: matthieu <2605746@sit.singaporetech.edu.sg>
+Date:   Sun Oct 4 19:48:33 2026 +0800
+
+    Update stock func
+
+commit 239773da1d013bca7557e97a1641899f5c5b4e9d
+Author: matthieu <2605746@sit.singaporetech.edu.sg>
+Date:   Sun Oct 4 19:45:50 2026 +0800
+
+    Add product func
+
+commit 8e1259ec0ca0632993b6c9e501c177bbd24979a6
+Author: matthieu <2605746@sit.singaporetech.edu.sg>
+Date:   Sun Oct 4 19:39:30 2026 +0800
+
+    Search product func
+
+commit 7cc1a3d07cb1ef110282efc845fc2d1ef097966b
+Author: matthieu <2605746@sit.singaporetech.edu.sg>
+Date:   Sun Oct 4 19:38:13 2026 +0800
+
+    Test display_all function
+
+commit 85741dce1393e73d6fe1a9f8c14d3d5f428174bb
+Author: matthieu <2605746@sit.singaporetech.edu.sg>
+Date:   Sun Oct 4 19:30:39 2026 +0800
+
+    Start new
+
+commit 1a714ddc35c1778ed8a134cbbf20e30a3a9950c2
+Author: matthieu <2605746@sit.singaporetech.edu.sg>
+Date:   Sun Oct 4 19:21:28 2026 +0800
+
+    Rename file
+
+commit 3375a084f67bcc03d31591aacf54e7c9dc24e391
+Author: matthieu <2605746@sit.singaporetech.edu.sg>
+Date:   Sun Oct 4 19:20:43 2026 +0800
+
+    Import Lab Wk 4
