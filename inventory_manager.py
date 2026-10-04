@@ -182,8 +182,11 @@ def main():
         elif choice == "4":
             handle_search_product(inventory)
         elif choice == "5":
-            print("Inventory saved successfully.")
+            print("Saving inventory ...")
+            save_inventory(inventory)
         elif choice == "6":
+            print("Saving inventory before exit...")
+            save_inventory(inventory)
             print("Thank you for using Inventory Management System.")
             print("Program terminated")
             break
