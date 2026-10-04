@@ -1,6 +1,28 @@
 #Smart Inventory Manager
 #Week 5
 
+import json
+import os
+
+INVENTORY_FILE = "inventory.json"
+
+# ------------- LOAD JSON -----------------
+def load_inventory():
+    """ Load product list form inventory.json. If doesnt exist, start empty"""
+    if os.path.exists(INVENTORY_FILE):
+        print(f"{INVENTORY_FILE} found.")
+        try:
+            with open(INVENTORY_FILE, "r") as file:
+                inventory = json.load(file)
+            print("Inventory loaded successfully.")
+            return inventory
+        except (json.JSONDecodeError, OSError):
+            print("Could not read the file. Starting with an empty inventory.")
+            return []
+
+    print(f"{INVENTORY_FILE} not found. Starting with an empty inventory.")
+    return []
+
 # ------------- Data manipulation functions -----------------
 def display_all(inventory):
     """Display all items in the inventory."""
@@ -165,5 +187,7 @@ def main():
         else:
             print("Invalid option. Please enter a number between 1 to 6.")
 
+
+# ------------- RUN PROGRAM -----------------
 if __name__ == "__main__":
     main()
