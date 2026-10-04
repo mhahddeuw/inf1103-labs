@@ -42,7 +42,35 @@ def update_stock(inventory, product_id, new_stock):
     product['stock'] = new_stock
     return True  # Stock updated successfully
 
+# ------------- User Input -----------------
+def get_int(prompt):
+    """Get valid integer input from user, imput >=0 """
+    while True:
+        try: 
+            value = int(input(prompt).strip())
+        except ValueError:
+            print("Invalid input. Please enter a whole number.")
+            continue
+        if value < 0:
+            print("Value cannot be negative. Please enter a whole number greater than or equal to 0.")
+            continue
+        return value
+
+def get_float(prompt):
+    """Get valid float input from user, input >=0 """
+    while True:
+        try:
+            value = float(input(prompt).strip())
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+            continue
+        if value < 0:
+            print("Value cannot be negative. Please enter a wholenumber greater than or equal to 0.")
+            continue
+        return value
 
 if __name__ == "__main__":
     print(display_all([]))  # Test with an empty inventory
     print(search_product([], 1))  # Test search with an empty inventory
+    print(add_product([], 1, "Widget", 19.99, 10))  # Test adding a product
+    print(update_stock([], 1, 20))  # Test updating stock with an empty inventory
