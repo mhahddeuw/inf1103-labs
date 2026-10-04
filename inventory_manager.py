@@ -69,8 +69,68 @@ def get_float(prompt):
             continue
         return value
 
+# ------------- Menu actions -----------------
+def handle_add_product(inventory):
+    print("\nAdd New Product")
+    product_id = input("Enter product ID: ").strip().upper()
+    if product_id == "":
+        print("Product ID cannot be empty.")
+        return
+    if search_product(inventory, product_id) is not None:
+        print("Product ID already exists. Cannot add product.")
+        return
+
+    name = input("Product Name: ").strip()
+    price = get_float("Price: $")
+    stock = get_int("Stock Quantity: ")
+
+    if add_product (inventory, product_id, name, price, stock):
+        print("Product added successfully.")
+
+def handle_update_stock(inventory):
+    print("\nUpdate Stock")
+    product_id = input("Enter product ID: ").strip().upper()
+    product = search_product(inventory, product_id)
+
+    if product is None:
+        print("Product not found.")
+        return
+
+    print("Product found:")
+    print(f"Name: {product['name']}")
+    print(f"Current Stock: {product['stock']}")
+    new_stock = get_int("Enter new stock quantity: ")
+
+    update_stock(inventory, product_id, new_stock)
+    print("Stock updated successfully.")
+
+def handle_search_product(inventory):
+    print("\nSearch Product")
+    product_id = input("Enter product ID: ").strip().upper()
+    product = search_product(inventory, product_id)
+
+    if product is None:
+        print("Product not found.")
+        return
+
+    print("Product found:")
+    print("-" * 48)
+    print(f"ID: {product['id']}")
+    print(f"Name: {product['name']}")
+    print(f"Price: ${product['price']:.2f}")
+    print(f"Stock: {product['stock']}")
+    print("-" * 48)
+
+def show_menu():
+    print("\n----------- Smart Inventory Manager -----------")
+    print("1. Display All Products")
+    print("2. Add Product")
+    print("3. Update Stock")
+    print("4. Search Product")
+    print("5. Save Inventory")
+    print("6. Exit")
+    print("-----------------------------------------------")
+
 if __name__ == "__main__":
-    print(display_all([]))  # Test with an empty inventory
-    print(search_product([], 1))  # Test search with an empty inventory
-    print(add_product([], 1, "Widget", 19.99, 10))  # Test adding a product
-    print(update_stock([], 1, 20))  # Test updating stock with an empty inventory
+    print (handle_add_product)
+    print (handle_update_stock)
