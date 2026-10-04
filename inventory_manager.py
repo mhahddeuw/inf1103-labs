@@ -23,6 +23,13 @@ def load_inventory():
     print(f"{INVENTORY_FILE} not found. Starting with an empty inventory.")
     return []
 
+# ------------- Save ---------------
+def save_inventory(inventory):
+    """Write product list to inventory.json"""
+    with open(INVENTORY_FILE, "w") as file:
+        json.dump(inventory, file, indent=4)
+    print(f"Inventory saved successfully to {INVENTORY_FILE}")
+
 # ------------- Data manipulation functions -----------------
 def display_all(inventory):
     """Display all items in the inventory."""
