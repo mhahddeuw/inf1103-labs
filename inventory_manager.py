@@ -156,7 +156,7 @@ def main():
         choice = input("Enter option (1-6): ").strip()
 
         if choice == "1":
-            inventory.display_all
+            inventory.display_all()
         elif choice == "2":
             handle_add_product(inventory)
         elif choice == "3":
