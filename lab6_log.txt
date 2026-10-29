@@ -1,0 +1,41 @@
+commit fe0f87a6fe3f0c597e6a26736b607cc50d0ac897
+Author: matthieu <2605746@sit.singaporetech.edu.sg>
+Date:   Thu Oct 29 22:18:46 2026 +0800
+
+    Edit inventory.display(), missed out on brackets
+
+commit 1fbd8ca4170b8d1e7376ceda714e45e903ce3b7f
+Author: matthieu <2605746@sit.singaporetech.edu.sg>
+Date:   Thu Oct 29 22:13:49 2026 +0800
+
+    Refactor inventory using oop
+
+commit 6ba28b9c7406a2b8f7d3ab140a67458e14243643
+Author: matthieu <2605746@sit.singaporetech.edu.sg>
+Date:   Thu Oct 29 21:58:54 2026 +0800
+
+    import classes, remove duplicate data manipulation function
+
+commit 0c66fca183e8c679cfb73a8094f96c40147d34d7
+Author: matthieu <2605746@sit.singaporetech.edu.sg>
+Date:   Thu Oct 29 03:27:51 2026 +0800
+
+    Create inventory class
+
+commit a44d04b55f1e57371c1bab7c06fb265fda0b9166
+Author: matthieu <2605746@sit.singaporetech.edu.sg>
+Date:   Thu Oct 29 02:38:59 2026 +0800
+
+    Import week5 files
+
+commit 6d1f6c5a131f5c7b7bbdd63dbe940d989b072454
+Author: matthieu <2605746@sit.singaporetech.edu.sg>
+Date:   Thu Oct 29 02:38:06 2026 +0800
+
+    Test Product class
+
+commit 15676e788498e035618882f5806b02266b7c0725
+Author: matthieu <2605746@sit.singaporetech.edu.sg>
+Date:   Thu Oct 29 02:28:52 2026 +0800
+
+    Create a product.py file for Product class
