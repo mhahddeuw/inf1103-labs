@@ -1,5 +1,5 @@
-#Smart Inventory Manager
-#Week 5
+#Smart Inventory Manager - object-oriented
+#Week 8
 
 import json
 import os
@@ -12,27 +12,45 @@ INVENTORY_FILE = "inventory.json"
 
 # ------------- LOAD JSON -----------------
 def load_inventory():
-    """ Load product list form inventory.json. If doesnt exist, start empty"""
-    if os.path.exists(INVENTORY_FILE):
-        print(f"{INVENTORY_FILE} found.")
-        try:
-            with open(INVENTORY_FILE, "r") as file:
-                inventory = json.load(file)
-            print("Inventory loaded successfully.")
-            return inventory
-        except (json.JSONDecodeError, OSError):
-            print("Could not read the file. Starting with an empty inventory.")
-            return []
+    """Read inventory.json and return inventory full of Product objects"""
+    inventory = Inventory()
 
-    print(f"{INVENTORY_FILE} not found. Starting with an empty inventory.")
-    return []
+    if not os.path.exists(INVENTORY_FILE):
+        print(f"{INVENTORY_FILE} not found. Starting with an empty inventory.")
+        return inventory
+
+    print(f"{INVENTORY_FILE} found.")
+    try:
+        with open(INVENTORY_FILE, "r") as file:
+            data = json.load(file)
+
+        for item in data:
+            product = Product(item["id"], item["name"], item["price"], item["stock"])
+            inventory.add_product(product)
+
+        print("Inventory loaded successfully.")
+    except (json.JSONDecodeError, KeyError, TypeError, OSError):
+        print("Could not read the file. Starting with an empty inventory.")
+        return Inventory()
+
+    return inventory
+    
 
 # ------------- Save ---------------
 def save_inventory(inventory):
-    """Write product list to inventory.json"""
+    """Turn every Product back into a dictionary and write them to inventory.json."""
+    data = []
+    for product in inventory.get_all_products():
+        data.append({
+            "id": product.get_product_id(),
+            "name": product.get_name(),
+            "price": product.get_price(),
+            "stock": product.get_stock(),
+        })
+
     with open(INVENTORY_FILE, "w") as file:
-        json.dump(inventory, file, indent=4)
-    print(f"Inventory saved successfully to {INVENTORY_FILE}")
+        json.dump(data, file, indent=4)
+    print(f"Inventory saved successfully to {INVENTORY_FILE}.")
 
 # ------------- User Input -----------------
 def get_int(prompt):
@@ -68,7 +86,7 @@ def handle_add_product(inventory):
     if product_id == "":
         print("Product ID cannot be empty.")
         return
-    if search_product(inventory, product_id) is not None:
+    if inventory.search_product(product_id) is not None:
         print("Product ID already exists. Cannot add product.")
         return
 
@@ -76,30 +94,31 @@ def handle_add_product(inventory):
     price = get_float("Price: $")
     stock = get_int("Stock Quantity: ")
 
-    if add_product (inventory, product_id, name, price, stock):
-        print("Product added successfully.")
+    product = Product(product_id, name, price, stock)   # create object
+    inventory.add_product(product)                      # hand it to Inventory
+    print("Product added successfully!")
 
 def handle_update_stock(inventory):
     print("\nUpdate Stock")
     product_id = input("Enter product ID: ").strip().upper()
-    product = search_product(inventory, product_id)
+    product = inventory.search_product(product_id)
 
     if product is None:
         print("Product not found.")
         return
 
     print("Product found:")
-    print(f"Name: {product['name']}")
-    print(f"Current Stock: {product['stock']}")
+    print(f"Name: {product.get_name()}")
+    print(f"Current Stock: {product.get_stock()}")
     new_stock = get_int("Enter new stock quantity: ")
 
-    update_stock(inventory, product_id, new_stock)
+    inventory.update_stock(product_id, new_stock)
     print("Stock updated successfully.")
 
 def handle_search_product(inventory):
     print("\nSearch Product")
     product_id = input("Enter product ID: ").strip().upper()
-    product = search_product(inventory, product_id)
+    product = inventory.search_product(product_id)
 
     if product is None:
         print("Product not found.")
@@ -107,10 +126,10 @@ def handle_search_product(inventory):
 
     print("Product found:")
     print("-" * 48)
-    print(f"ID: {product['id']}")
-    print(f"Name: {product['name']}")
-    print(f"Price: ${product['price']:.2f}")
-    print(f"Stock: {product['stock']}")
+    print(f"ID: {product.get_product_id()}")
+    print(f"Name: {product.get_name()}")
+    print(f"Price: ${product.get_price():.2f}")
+    print(f"Stock: {product.get_stock()}")
     print("-" * 48)
 
 def show_menu():
@@ -137,7 +156,7 @@ def main():
         choice = input("Enter option (1-6): ").strip()
 
         if choice == "1":
-            display_all(inventory)
+            inventory.display_all
         elif choice == "2":
             handle_add_product(inventory)
         elif choice == "3":
