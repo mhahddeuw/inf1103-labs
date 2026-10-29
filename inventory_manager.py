@@ -4,6 +4,10 @@
 import json
 import os
 
+
+from product import Product
+from inventory import Inventory
+
 INVENTORY_FILE = "inventory.json"
 
 # ------------- LOAD JSON -----------------
@@ -29,47 +33,6 @@ def save_inventory(inventory):
     with open(INVENTORY_FILE, "w") as file:
         json.dump(inventory, file, indent=4)
     print(f"Inventory saved successfully to {INVENTORY_FILE}")
-
-# ------------- Data manipulation functions -----------------
-def display_all(inventory):
-    """Display all items in the inventory."""
-    print("\nCurrent Inventory")
-    print("-" * 48)
-    if not inventory:
-        print("(no products yet)")
-    for product in inventory:
-        print(
-            f"ID: {product['id']} |Name: {product['name']} | "
-            f"Price: ${product['price']:.2f} | Stock: {product['stock']}"
-        )
-    print("-" * 48)
-
-def search_product(inventory, product_id):
-    """Search for a product by its ID."""
-    for product in inventory:
-        if product['id'] == product_id:
-            return product
-    return None
-
-def add_product(inventory, product_id, name, price, stock):
-    """Add a new product to the inventory. Return False if product does not exist"""
-    if search_product(inventory, product_id) is not None:
-        return False  # Product does not exist
-    inventory.append(
-        {"id": product_id,
-         "name": name,
-         "price": price,
-         "stock": stock}
-    )
-    return True  # Product added successfully
-
-def update_stock(inventory, product_id, new_stock):
-    """Update the stock of a product. Return False if product does not exist"""
-    product = search_product(inventory, product_id)
-    if product is None:
-        return False  # Product does not exist
-    product['stock'] = new_stock
-    return True  # Stock updated successfully
 
 # ------------- User Input -----------------
 def get_int(prompt):
