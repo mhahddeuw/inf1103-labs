@@ -11,4 +11,4 @@ venv/
 
 # IDE settings
 .vscode/
-.idea/
+.idea/.DS_Store
