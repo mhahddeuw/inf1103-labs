@@ -5,10 +5,25 @@ import json
 import os
 
 
-from product import Product
-from inventory import Inventory
+from classes.can_be_shipped import CanBeShipped
+from classes.inventory import Inventory
+from classes.physical_product import PhysicalProduct
+from classes.digital_product import DigitalProduct
 
 INVENTORY_FILE = "inventory.json"
+
+# ------------- FILE HANDLING -----------------
+def create_product(item):
+    product_type = item.get("type", "physical")    # older files had no type
+    if product_type == "physical":
+        return PhysicalProduct(item["id"], item["name"], item["price"],
+                               item["stock"], item.get("weight", 0.0))
+    
+    if product_type == "digital":
+        return DigitalProduct(item["id"], item["name"], item["price"],
+                              item["stock"], item["download_size"])
+    return None
+
 
 # ------------- LOAD JSON -----------------
 def load_inventory():
@@ -25,8 +40,11 @@ def load_inventory():
             data = json.load(file)
 
         for item in data:
-            product = Product(item["id"], item["name"], item["price"], item["stock"])
-            inventory.add_product(product)
+            product = create_product(item)
+            if product is None:
+                print(f"Skipped an item with unknown type: {item.get('type')}")
+            else:
+                inventory.add_product(product)
 
         print("Inventory loaded successfully.")
     except (json.JSONDecodeError, KeyError, TypeError, OSError):
@@ -38,15 +56,8 @@ def load_inventory():
 
 # ------------- Save ---------------
 def save_inventory(inventory):
-    """Turn every Product back into a dictionary and write them to inventory.json."""
-    data = []
-    for product in inventory.get_all_products():
-        data.append({
-            "id": product.get_product_id(),
-            "name": product.get_name(),
-            "price": product.get_price(),
-            "stock": product.get_stock(),
-        })
+    """Ask every Product to decribe itself, then write list to inventory.json"""
+    data = [product.to_dict() for product in inventory.get_all_products()]
 
     with open(INVENTORY_FILE, "w") as file:
         json.dump(data, file, indent=4)
@@ -94,8 +105,22 @@ def handle_add_product(inventory):
     price = get_float("Price: $")
     stock = get_int("Stock Quantity: ")
 
-    product = Product(product_id, name, price, stock)   # create object
-    inventory.add_product(product)                      # hand it to Inventory
+    print("Product Type:")
+    print("1. Physical")
+    print("2. Digital")
+    type_choice = input("Enter option (1 or 2): ").strip()
+
+    if type_choice == "1":
+        weight = get_float("Weight (kg): ")
+        product = PhysicalProduct(product_id, name, price, stock, weight)
+    elif type_choice == "2":
+        download_size = get_float("Download Size (MB): ")
+        product = DigitalProduct(product_id, name, price, stock, download_size)
+    else:
+        print("Invalid product type. Nothing not added.")
+        return
+
+    inventory.add_product(product)
     print("Product added successfully!")
 
 def handle_update_stock(inventory):
@@ -125,11 +150,10 @@ def handle_search_product(inventory):
         return
 
     print("Product found:")
-    print("-" * 48)
-    print(f"ID: {product.get_product_id()}")
-    print(f"Name: {product.get_name()}")
-    print(f"Price: ${product.get_price():.2f}")
-    print(f"Stock: {product.get_stock()}")
+    product.display_information()
+    print(f".   Fulfilment Info: {product.get_fulfilment_info()}")
+    if isinstance(product, CanBeShipped):
+        print(f".   Shipping Cost: ${product.calculate_shipping_cost():.2f}")
     print("-" * 48)
 
 def show_menu():

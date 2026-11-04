@@ -1,4 +1,4 @@
-from product import Product
+from classes.product import Product
 
 
 class DigitalProduct(Product):
@@ -14,3 +14,12 @@ class DigitalProduct(Product):
     def display_information(self):
         super().display_information()                      # parent prints the common part
         print(f"    Type: Digital | Download Size: {self.__download_size:.2f} MB")
+
+    def get_fulfilment_info(self):
+        return "Digital product: delivered electronically by download link"
+
+    def to_dict(self):
+        data = super().to_dict() 
+        data["type"] = "digital"
+        data["download_size"] = self.__download_size
+        return data
