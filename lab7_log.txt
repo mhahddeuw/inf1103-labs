@@ -1,0 +1,113 @@
+commit 6365420bb5b5a9488283baa421b4c1f82e656e0d
+Author: Matthieu <fmdc0422@gmail.com>
+Date:   Wed Nov 4 21:24:20 2026 +0800
+
+    Add UML diagram
+
+commit c9960bf4f578989d1a1c2735bb88fbf454fd065c
+Author: Matthieu <fmdc0422@gmail.com>
+Date:   Wed Nov 4 21:16:33 2026 +0800
+
+    Update .gitignore
+
+commit 2bff87a51f35d414bed97ae9ba6c1ec89681dfd1
+Author: Matthieu <fmdc0422@gmail.com>
+Date:   Wed Nov 4 21:13:44 2026 +0800
+
+    Remove Lab 6 files from week7 branch
+
+commit 56f49d1edee6d05db2ab9ad1223a50e3c7d51748
+Author: Matthieu <fmdc0422@gmail.com>
+Date:   Wed Nov 4 21:09:30 2026 +0800
+
+    Update .gitignore
+
+commit 1fa4672cc353641c2ce18243619ca366ae729c83
+Author: Matthieu <fmdc0422@gmail.com>
+Date:   Wed Nov 4 21:07:29 2026 +0800
+
+    Integrate product types into inventory system with typed JSON persistence
+
+commit d954db096b6da52b835b25b755a215c3b3b2dbe5
+Author: Matthieu <fmdc0422@gmail.com>
+Date:   Wed Nov 4 16:21:34 2026 +0800
+
+    Add CanBeShipped interface and implement in PhysialProduct
+
+commit 23c9808f085fc1ced08912a5c5c820167673416a
+Author: Matthieu <fmdc0422@gmail.com>
+Date:   Wed Nov 4 16:07:34 2026 +0800
+
+    Add PhysicalProduct and DigitalProduct subclasses
+
+commit d7dd97946a01fd4e3a8037106ac776861d4c29c2
+Author: matthieu <2605746@sit.singaporetech.edu.sg>
+Date:   Fri Oct 30 10:27:59 2026 +0800
+
+    Update on UML class diagram, was not a png
+
+commit 7d717cd46ca75076b7ecbddf61e6ba44c5badb85
+Author: matthieu <2605746@sit.singaporetech.edu.sg>
+Date:   Thu Oct 29 23:24:01 2026 +0800
+
+    add uml class diagram
+
+commit 86f6c5e52f5ceee7fc727eb7090cccbdc9b36bea
+Author: matthieu <2605746@sit.singaporetech.edu.sg>
+Date:   Thu Oct 29 23:22:19 2026 +0800
+
+    add dockerfile
+
+commit 439f83a3861907314e175559f02187789a78110e
+Author: matthieu <2605746@sit.singaporetech.edu.sg>
+Date:   Thu Oct 29 23:21:46 2026 +0800
+
+    add git log
+
+commit c55bb309b276882697fd708dbd68f55e736e07e5
+Author: matthieu <2605746@sit.singaporetech.edu.sg>
+Date:   Thu Oct 29 23:20:57 2026 +0800
+
+    updated json p006 webcam
+
+commit fe0f87a6fe3f0c597e6a26736b607cc50d0ac897
+Author: matthieu <2605746@sit.singaporetech.edu.sg>
+Date:   Thu Oct 29 22:18:46 2026 +0800
+
+    Edit inventory.display(), missed out on brackets
+
+commit 1fbd8ca4170b8d1e7376ceda714e45e903ce3b7f
+Author: matthieu <2605746@sit.singaporetech.edu.sg>
+Date:   Thu Oct 29 22:13:49 2026 +0800
+
+    Refactor inventory using oop
+
+commit 6ba28b9c7406a2b8f7d3ab140a67458e14243643
+Author: matthieu <2605746@sit.singaporetech.edu.sg>
+Date:   Thu Oct 29 21:58:54 2026 +0800
+
+    import classes, remove duplicate data manipulation function
+
+commit 0c66fca183e8c679cfb73a8094f96c40147d34d7
+Author: matthieu <2605746@sit.singaporetech.edu.sg>
+Date:   Thu Oct 29 03:27:51 2026 +0800
+
+    Create inventory class
+
+commit a44d04b55f1e57371c1bab7c06fb265fda0b9166
+Author: matthieu <2605746@sit.singaporetech.edu.sg>
+Date:   Thu Oct 29 02:38:59 2026 +0800
+
+    Import week5 files
+
+commit 6d1f6c5a131f5c7b7bbdd63dbe940d989b072454
+Author: matthieu <2605746@sit.singaporetech.edu.sg>
+Date:   Thu Oct 29 02:38:06 2026 +0800
+
+    Test Product class
+
+commit 15676e788498e035618882f5806b02266b7c0725
+Author: matthieu <2605746@sit.singaporetech.edu.sg>
+Date:   Thu Oct 29 02:28:52 2026 +0800
+
+    Create a product.py file for Product class
